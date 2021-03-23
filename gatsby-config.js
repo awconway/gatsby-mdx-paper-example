@@ -1,5 +1,3 @@
-const remarkSubSuper = require('remark-sub-super')
-const remarkSectionize = require('remark-sectionize')
 const remarkCitations = require('remark-citations')
 
 module.exports = {
@@ -10,9 +8,27 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'references',
+        path: `${__dirname}/src/references`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        remarkPlugins: [remarkSubSuper, remarkSectionize, remarkCitations],
+        remarkPlugins: [remarkCitations],
+        gatsbyRemarkPlugins: [`gatsby-remark-sectionize`,
+          `gatsby-remark-sub-sup`],
+        defaultLayouts: {
+          default: require.resolve("./src/components/layout.js"),
+        },
       },
     },
     {

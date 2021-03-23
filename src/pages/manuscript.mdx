@@ -1,5 +1,5 @@
-import { Bibliography, InlineEquation, Figure } from '@aeaton/react-paper'
-import smoke from './data/smoke.jpg'
+import { Bibliography } from '../components/Bibliography.tsx'
+import { InlineEquation } from '../components/Equation.tsx'
 
 # Introduction
 
@@ -13,13 +13,6 @@ This is an example of an inline equation: <InlineEquation tex="\int_0^\infty x^2
 
 This is a subscript: CO~2~.
 
-<Figure
-  label={'Figure 1'}
-  title={'An example figure'}
-  caption={'This is an example figure.'}
->
-  <img src={smoke} />
-</Figure>
 
 # Discussion
 
@@ -27,4 +20,5 @@ This is the discussion [@qiao2013cociter;@saad2013supporting].
 
 # Bibliography
 
+The bibliography component doesn't actually have to be included here.
 <Bibliography />
